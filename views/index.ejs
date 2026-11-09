@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p><%= message %></p>
+    <ul>
+        <% errors.forEach(error => { %>
+            <li><%= error %></li>
+        <% }); %>
+    </ul>
+    <form method="post">
+        <input type="text" name="name" placeholder="Név" value="<%= locals.body?.name ? locals.body.name : '' %>">
+        <input type="text"  name="email" placeholder="Email" value="<%= locals.body?.email ? locals.body.email : '' %>">
+        <input type="date"  name="date" placeholder="Dátum" value="<%= locals.body?.date ? locals.body.date : '' %>">
+        <input type="number" name="amount" placeholder="Férőhelyek száma" value="<%= locals.body?.amount ? locals.body.amount : '' %>">
+        <button type="submit">Foglalás</button>
+    </form>
+</body>
+</html>
